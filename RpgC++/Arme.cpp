@@ -18,5 +18,21 @@ void Arme::changer(string nom, int degats)
 }
 void Arme::afficher() const
 {
-	cout << "Arme :" << m_nom << "elle fais :" << m_degats << endl;
+	cout << "Arme :" << m_nom << "elle fais : " << m_degats << endl;
+}
+int Arme::Getdegats()const
+{
+	return m_degats;
+}
+void Arme::Setdegats(int degats)
+{
+	m_degats = degats;
+}
+string Arme::Getnom()const
+{
+	return m_nom;
+}
+void Arme::Setnom(string nom)
+{
+	m_nom = nom;
 }
