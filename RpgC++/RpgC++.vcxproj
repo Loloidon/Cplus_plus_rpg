@@ -128,11 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arme.cpp" />
+    <ClCompile Include="Guerrier.cpp" />
+    <ClCompile Include="Magicien.cpp" />
     <ClCompile Include="Personnage.cpp" />
     <ClCompile Include="RpgC++.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arme.hpp" />
+    <ClInclude Include="Guerrier.hpp" />
+    <ClInclude Include="Magicien.hpp" />
     <ClInclude Include="Personnage.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
