@@ -8,14 +8,14 @@ class Personnage
         Personnage();
         Personnage(std::string nomArme,int degatsArme);
         ~Personnage();
-        void recevoirDegats();
+        void recevoirDegats(int degats);
         void attaquer(Personnage& cible);
         void boirePotionDeVie(int quantitePotion);
         void changerArme(std::string nomNouvelleArme, int degatsNouvelleArme);
         bool estVivant() const;
         void afficherEtat()const;
 
-   private:
+   protected:
        std::string m_nom;
        int m_vie;
        int m_mana;

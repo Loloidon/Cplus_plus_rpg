@@ -17,10 +17,11 @@ Personnage ::~Personnage()
 {
 	delete m_arme;
 }
-void Personnage::recevoirDegats()
+void Personnage::recevoirDegats(int degats)
 {
+	degats = m_arme->Getdegats();
 	cout << m_nom << ":" << "AAAAAAAAAAAAH JE RECOIS " << m_arme->Getdegats() << " de degats !" << endl;
-	m_vie -= m_arme->Getdegats();
+	m_vie -= degats;
 
 	if (m_vie < 0)
 	{
@@ -30,7 +31,7 @@ void Personnage::recevoirDegats()
 void Personnage::attaquer(Personnage& cible)
 {
 	cout << m_nom << ":" << "YAAAAAAAAAAAAAAH JATTAQUE!!!!!"<<endl;
-	cible.recevoirDegats();
+	cible.recevoirDegats(m_arme->Getdegats());
 }
 void Personnage::boirePotionDeVie(int quantitePotion)
 {

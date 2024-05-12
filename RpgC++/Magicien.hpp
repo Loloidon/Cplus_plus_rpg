@@ -8,8 +8,8 @@
 class Magicien : public Personnage
 {
 public:
-    void bouleDeFeu() const;
-    void bouleDeGlace() const;
+    void bouleDeFeu(Personnage &cible);
+    void bouleDeGlace(Personnage &cible);
 
 private:
     int m_mana;
