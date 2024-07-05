@@ -28,9 +28,33 @@ void Personnage::recevoirDegats(int degats)
 		m_vie = 0;
 	}
 }
+int Personnage:: recevoiretourdissement(int degats)
+{
+	int rng = 0;
+	rng = rand() % 3;
+	cout << "AAAH ma tete zzZZzzZZzZzZ" << endl;
+	return rng;
+}
+int Personnage::recevoircongelation(int degats)
+{
+	int rng = 0;
+	rng = rand() % 3;
+	cout << "AAAH JE DEVIENS UN GLACOOOOOOON !!!!!" << endl;
+	return rng;
+}
+int Personnage::esquive()
+{
+	int rng = 0;
+	rng = rand() % 3;
+	if(rng==3)
+	cout << "AHAHAHA j'esquive !!!" << endl;
+	return rng;
+}
 void Personnage::attaquer(Personnage& cible)
 {
+	int rngesquive = cible.esquive();
 	cout << m_nom << ":" << "YAAAAAAAAAAAAAAH JATTAQUE!!!!!"<<endl;
+	if(rngesquive==!3)
 	cible.recevoirDegats(m_arme->Getdegats());
 }
 void Personnage::boirePotionDeVie(int quantitePotion)
@@ -41,7 +65,7 @@ void Personnage::boirePotionDeVie(int quantitePotion)
 	if (m_vie > 100)
 		m_vie = 100;
 }
-void Personnage::changerArme(std::string nomNouvelleArme, int degatsNouvelleArme)
+void Personnage::changerArme(string nomNouvelleArme, int degatsNouvelleArme)
 {
 	cout << m_nom << ":" << "JE CHANGE DARME DORENAVANT J'AURAIS : " << m_arme->Getnom() << endl;
 	m_arme->changer(nomNouvelleArme, degatsNouvelleArme);
@@ -55,4 +79,13 @@ void Personnage::afficherEtat() const
 	cout << "vie :" << m_vie << endl;
 	cout << "mana:" << m_mana<<endl;
 	m_arme->afficher();
+}
+void Personnage:: setNom(std::string nom)
+{
+	pseudo = nom;
+	
+}
+std::string Personnage:: getNom() const
+{
+	return pseudo;
 }

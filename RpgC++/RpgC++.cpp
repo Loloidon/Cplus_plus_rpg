@@ -2,17 +2,25 @@
 //
 
 #include <iostream>
-#include <stdlib.h>
+
 #include "Personnage.hpp"
+#include "Interface.hpp"
+
+
 using namespace std;
 
    
 int main()
 {
     Personnage david, goliath("Souls Eater",999);
+    Interface gameInterface;
     
 
-    goliath.attaquer(david);    
+    gameInterface.introDrawing();
+    gameInterface.creationPerso();
+    gameInterface.displayArena();
+    
+    /*goliath.attaquer(david);    
     david.boirePotionDeVie(20); 
     goliath.attaquer(david);    
     david.attaquer(goliath);    
@@ -27,8 +35,8 @@ int main()
     cout << "david"<< endl;
     david.afficherEtat();
     cout << "Goliath" << endl;
-    goliath.afficherEtat();
-
+    goliath.afficherEtat();*/
+    
 
     return 0;
 }

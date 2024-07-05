@@ -8,7 +8,7 @@
 class Guerrier : public Personnage
 {
 	public:
-		void frapperAvecUnMarteau() const;
+		void frapperAvecUnMarteau(Personnage &cible);
 
 };
 
