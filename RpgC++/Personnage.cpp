@@ -2,6 +2,7 @@
 #include "Arme.hpp"
 #include <string>
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -17,6 +18,43 @@ Personnage ::~Personnage()
 {
 	delete m_arme;
 }
+void Personnage::opponentManager()
+{
+Personnage david, goliath("Souls Eater", 999);
+Personnage Ariane("Baton en bois", 6);
+Personnage Baldur("Epee en fer", 12);
+Personnage Xana("Epee des highlands", 45);
+Personnage Vara("Lance en obsidian", 55);
+Personnage Ultor("World Destroyer", 75);
+map<int, Personnage> dicoennemi = { {
+										1,
+										Ariane,
+									},
+									{
+										2,
+										Baldur,
+									},
+									{
+										3,
+										Xana,
+									},
+									{
+										4,
+										Vara,
+									},
+									{
+										5,
+										Ultor,
+									} };
+}
+Personnage switchOpponent(map<int, Personnage> dictionnaireennemi,int numadversaire)
+{
+	Personnage adversaire;
+	map<int, Personnage>::iterator it = dictionnaireennemi.find(numadversaire);
+	adversaire.m_arme->Setnom(it->second.m_arme->Getnom());
+	adversaire.m_arme->Setdegats(it->second.m_arme->Getdegats());
+	return adversaire;
+}
 void Personnage::recevoirDegats(int degats)
 {
 	degats = m_arme->Getdegats();
@@ -28,14 +66,14 @@ void Personnage::recevoirDegats(int degats)
 		m_vie = 0;
 	}
 }
-int Personnage:: recevoiretourdissement(int degats)
+int Personnage:: recevoiretourdissement()
 {
 	int rng = 0;
 	rng = rand() % 3;
 	cout << "AAAH ma tete zzZZzzZZzZzZ" << endl;
 	return rng;
 }
-int Personnage::recevoircongelation(int degats)
+int Personnage::recevoircongelation()
 {
 	int rng = 0;
 	rng = rand() % 3;
@@ -83,7 +121,6 @@ void Personnage::afficherEtat() const
 void Personnage:: setNom(std::string nom)
 {
 	pseudo = nom;
-	
 }
 std::string Personnage:: getNom() const
 {

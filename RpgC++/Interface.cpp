@@ -1,4 +1,7 @@
 #include "Personnage.hpp"
+#include "Magicien.hpp"
+#include "Guerrier.hpp"
+#include "Voleur.hpp"
 #include "Interface.hpp"
 #include <string>
 #include <iostream>
@@ -6,32 +9,48 @@ using namespace std;
 
 void Interface::creationPerso()
 {
-    Personnage Joueur;
+    Magicien Joueur;
+    Guerrier Joueur;
+    Voleur Joueur;
     string nominput;
     int classeinput;
+    int weaponninput;
+    Arme* pt_arme;
     cout << "Entrez le nom de votre Hero/Heroine" << endl;
     cin >> nominput;
     Joueur.setNom(nominput);
 
-    cout << "Choissisez votre classe CHAMPION 1.Guerrier 2.Magicien 3.Voleur" << endl;
+   /* cout << "Choissisez votre classe CHAMPION 1.Guerrier 2.Magicien 3.Voleur" << endl;
     cin >> classeinput;
     switch (classeinput)
     {
     case 1:
-        Joueur.Guerrier;
         cout << "VOTRE HEROS EST UN FABULEUX GUERRIER" << endl;
+        
+        
         break;
     case 2:
-        Joueur.Magicien;
         cout << "VOTRE HEROS EST UN GLORIEUX MAGICIEN" << endl;
         break;
     case 3:
 
-        Joueur.Voleur;
         cout << "VOTRE HEROS EST UN VOLEUR TRES FOURBE" << endl;
         break;
+    }*/
+    cout << "Choissisez votre arme ! 1.Epee 2.Hache 3.Lance" << endl;
+    cin >> weaponninput;
+    switch (weaponninput)
+    {
+    case 1: pt_arme->changer("Epee", 25);
+            cout << "Vous avez choisi une glorieuse Epee banale" << endl;
+        break;
+    case 2: pt_arme->changer("Hache", 25);
+            cout << "Vous avez choisi une glorieuse Hache banale" << endl;
+    
+        break;
+    case 3: pt_arme->changer("Lance", 25);
+            cout << "Vous avez choisi une glorieuse Lance banale" << endl;
     }
-
 
 }
 void Interface::introDrawing()
@@ -108,17 +127,28 @@ void Interface::displayArena()
 void Interface::fightMenu()
 {
     Personnage Joueur;
-    int playerinput;
+    Personnage Adversaire;
+    
+        
+    int playerinput=0;
     while (Joueur.estVivant())
     {
         if (Joueur.Guerrier)
         {
-            cout << "FAITES VOTRE CHOIX 1. ATTAQUER 2. ATQ SPEC 3. Abandonner"<<endl;
+            cout << "FAITES VOTRE CHOIX 1. ATTAQUER  2. Abandonner"<<endl;
+            cin >> playerinput;
         }
         switch (playerinput)
         {
         case 1:
+            Joueur.attaquer(Adversaire);
+            break;
+        case 2:
             break;
         }
     }
+}
+void Interface::vACUG()
+{
+    cout << "Vous avez choisi une glorieuse";
 }

@@ -12,6 +12,7 @@ class Interface
 		void introDrawing();
 		void displayArena();
 		void fightMenu();
+		void vACUG(); //Vous avez choisi une glorieuse
 	private:
 };
 
